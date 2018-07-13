@@ -1,0 +1,44 @@
+C:\Users\maciej.kamieniak\Documents\Frameworks test\Assets\Plugins\DataContainer.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\Assets\Plugins\DataContainer.pdb
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\DataContainer.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\DataContainer.pdb
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\UnityEditor.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\UnityEngine.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.DataContract.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\ExCSS.Unity.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.Legacy.NRefactory.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.CecilTools.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.Pdb.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.Mdb.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\UnityEditor.xml
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\bin\Debug\UnityEngine.xml
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\obj\Debug\DataContainer.csproj.CoreCompileInputs.cache
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\obj\Debug\DataContainer.csproj.CopyComplete
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\obj\Debug\DataContainer.dll
+C:\Users\maciej.kamieniak\Documents\Frameworks test\VS\DataContainer\DataContainer\obj\Debug\DataContainer.pdb
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\DataContainer.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\DataContainer.pdb
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\UnityEditor.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\UnityEngine.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.DataContract.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\ExCSS.Unity.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.Legacy.NRefactory.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.CecilTools.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.Pdb.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Unity.Cecil.Mdb.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\UnityEditor.xml
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\bin\Debug\UnityEngine.xml
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\obj\Debug\DataContainer.csproj.CoreCompileInputs.cache
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\obj\Debug\DataContainer.csproj.CopyComplete
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\obj\Debug\DataContainer.dll
+C:\Users\maciej.kamieniak\Documents\RocketFlightEngineering\VS\DataContainer\DataContainer\obj\Debug\DataContainer.pdb

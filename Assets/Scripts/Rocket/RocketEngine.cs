@@ -1,47 +1,51 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class RocketEngine : MonoBehaviour
+namespace Assets.Scripts.Rocket
 {
-    [SerializeField] private float _delay = 5f;
-    [SerializeField] private float _duration = 5f;
-    [SerializeField] private float _startVelocity = 0;
-    [SerializeField] private float _forceMultiplier = 10;
-    [SerializeField] private AnimationCurve _force;
-    [SerializeField] private Vector3 _enginePosition = new Vector3(0, 0, 0);
-    [SerializeField] private bool _looping = false;
-    [SerializeField] private bool _lockOnEndForce = false;
-
-    private Rigidbody _rigidbody;
-    private float _forceNow;
-    private float _engineIsWorkingTime;
-    private float _workEndEngineTime;
-
-    void Start()
+    [RequireComponent(typeof(Rigidbody))]
+    public class RocketEngine : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.velocity = transform.forward * _startVelocity;
-        _engineIsWorkingTime = -_delay;
-        _workEndEngineTime = _force[_force.length - 1].time * _duration;
-    }
+        [SerializeField] public Vector3 EnginePosition = new Vector3(0, 0, 0);
+        [SerializeField] public float ForceMultiplier = 10;
+        [SerializeField] public AnimationCurve Force;
 
-    private void Update()
-    {
-        _engineIsWorkingTime += Time.deltaTime;
+        [SerializeField] private float _delay = 3f;
+        [SerializeField] private float _duration =4f;
+        [SerializeField] private float _startVelocity = 0;
+        [SerializeField] private bool _looping = false;
+        [SerializeField] private bool _lockOnEndForce = false;
+         
+        private Rigidbody _rigidbody;
+        private float _forceNow;
+        private float _engineIsWorkingTime;
+        private float _workEndEngineTime;
 
-        if (_engineIsWorkingTime >= 0 && (_engineIsWorkingTime <= _workEndEngineTime || _looping))
+        public void PrepareToStart()
         {
-            _forceNow = _force.Evaluate(_engineIsWorkingTime % _workEndEngineTime);
+            _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody.velocity = transform.forward * _startVelocity;
+            _engineIsWorkingTime = -_delay;
+            _workEndEngineTime = Force[Force.length - 1].time * _duration;
         }
-        else if (!_lockOnEndForce)
-        {
-            _forceNow = 0;
-        }
-    }
 
-    void FixedUpdate()
-    {
-        _rigidbody.AddForceAtPosition(transform.forward * _forceNow * _forceMultiplier,
-        transform.position + _enginePosition, ForceMode.Force);
+        private void Update()
+        {
+            _engineIsWorkingTime += Time.deltaTime;
+
+            if (_engineIsWorkingTime >= 0 && (_engineIsWorkingTime <= _workEndEngineTime || _looping))
+            {
+                _forceNow = Force.Evaluate(_engineIsWorkingTime % _workEndEngineTime);
+            }
+            else if (!_lockOnEndForce)
+            {
+                _forceNow = 0;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            _rigidbody.AddForceAtPosition(transform.forward * _forceNow * ForceMultiplier,
+                transform.position + EnginePosition, ForceMode.Force);
+        }
     }
 }
