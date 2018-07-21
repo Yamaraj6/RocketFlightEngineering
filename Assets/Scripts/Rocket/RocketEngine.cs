@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Extensions;
+using UnityEngine;
 
-namespace Assets.Scripts.Rocket
+namespace Rocket
 {
     [RequireComponent(typeof(Rigidbody))]
     public class RocketEngine : MonoBehaviour
@@ -8,9 +9,9 @@ namespace Assets.Scripts.Rocket
         [SerializeField] public Vector3 EnginePosition = new Vector3(0, 0, 0);
         [SerializeField] public float ForceMultiplier = 10;
         [SerializeField] public AnimationCurve Force;
+        [SerializeField] public float Duration = 4f;
 
         [SerializeField] private float _delay = 3f;
-        [SerializeField] private float _duration =4f;
         [SerializeField] private float _startVelocity = 0;
         [SerializeField] private bool _looping = false;
         [SerializeField] private bool _lockOnEndForce = false;
@@ -20,16 +21,22 @@ namespace Assets.Scripts.Rocket
         private float _engineIsWorkingTime;
         private float _workEndEngineTime;
 
+        private bool _readyToStart = false;
+
         public void PrepareToStart()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.velocity = transform.forward * _startVelocity;
             _engineIsWorkingTime = -_delay;
-            _workEndEngineTime = Force[Force.length - 1].time * _duration;
+            _workEndEngineTime = Force[Force.length - 1].time * Duration;
+            transform.SetActiveAllChildren(true);
+            _readyToStart = true;
         }
 
         private void Update()
         {
+            if (!_readyToStart)
+                return;
             _engineIsWorkingTime += Time.deltaTime;
 
             if (_engineIsWorkingTime >= 0 && (_engineIsWorkingTime <= _workEndEngineTime || _looping))
@@ -44,6 +51,9 @@ namespace Assets.Scripts.Rocket
 
         private void FixedUpdate()
         {
+            if (!_readyToStart)
+                return;
+
             _rigidbody.AddForceAtPosition(transform.forward * _forceNow * ForceMultiplier,
                 transform.position + EnginePosition, ForceMode.Force);
         }

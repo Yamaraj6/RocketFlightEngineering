@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Canvas
   - Rocket
+  - Fire
+  - EngineSettings
+  - UnitOfWork
+  - EngineSettingsLayout
   layers:
   - Default
   - TransparentFX

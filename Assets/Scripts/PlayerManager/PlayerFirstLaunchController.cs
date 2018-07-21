@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.DataContainer;
-using Assets.Scripts.FirstLaunch;
-using Assets.Scripts.Models;
+using DataContainer;
+using FirstLaunch;
+using Models;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.PlayerManager
+namespace PlayerManager
 {
     public class PlayerFirstLaunchController : MonoBehaviour
     {

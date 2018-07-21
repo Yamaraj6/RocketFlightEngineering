@@ -1,8 +1,8 @@
-using Assets.Scripts.DataContainer;
-using Assets.Scripts.Models;
+using DataContainer;
+using Models;
 using UnityEngine;
 
-namespace Assets.Scripts.PlayerManager
+namespace PlayerManager
 {
     public class PlayerController : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace Assets.Scripts.PlayerManager
 
         private void Awake()
         {
+            DontDestroyOnLoad(this.gameObject);
             PlayerContainer = new Container<Player>();
 
         }

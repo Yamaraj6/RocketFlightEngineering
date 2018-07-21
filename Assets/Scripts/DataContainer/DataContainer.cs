@@ -2,7 +2,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Assets.Scripts.DataContainer
+namespace DataContainer
 {
     public interface IContainer<TData>
     {

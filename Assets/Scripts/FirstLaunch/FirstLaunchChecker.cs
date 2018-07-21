@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.FirstLaunch
+namespace FirstLaunch
 {
     public interface IFirstLaunchChecker
     {

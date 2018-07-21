@@ -1,4 +1,4 @@
-namespace Assets.Scripts.Models
+namespace Models
 {
     public enum LevelType
     {

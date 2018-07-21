@@ -3,5 +3,7 @@
   "Id": 1,
   "FirstLogDate": "2018-01-01",
   "LastLogDate": "2018-01-01",
-  "RecordsCollection": []
+  "RecordsCollection": [],
+  "PointSettings": { "1": { "Engine": { "1": { "EnginePower": { "1": 10.0 } } } } }
+
 }
