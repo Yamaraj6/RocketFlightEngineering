@@ -1,0 +1,16 @@
+newmtl Rocket
+Kd 0.9622642 0.9622642 0.9622642
+d 1
+
+newmtl RocketRed
+Kd 1 0 0
+d 1
+
+newmtl WindowRocket2
+Kd 0 0 0
+d 1
+
+newmtl WindowRocket
+Kd 0.4339623 0.4339623 0.4339623
+d 1
+

@@ -6,6 +6,7 @@ namespace Rocket
     [RequireComponent(typeof(Rigidbody))]
     public class RocketEngine : MonoBehaviour
     {
+        [SerializeField] private bool DebugToggle;
         [SerializeField] public Vector3 EnginePosition = new Vector3(0, 0, 0);
         [SerializeField] public float ForceMultiplier = 10;
         [SerializeField] public AnimationCurve Force;
@@ -35,6 +36,11 @@ namespace Rocket
 
         private void Update()
         {
+            if (DebugToggle)
+            {
+                DebugToggle = false;
+                PrepareToStart();
+            }
             if (!_readyToStart)
                 return;
             _engineIsWorkingTime += Time.deltaTime;
