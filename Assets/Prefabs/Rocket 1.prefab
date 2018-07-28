@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114938723822471008}
   - component: {fileID: 114277220316160732}
   - component: {fileID: 114934885988330384}
+  - component: {fileID: 114731402759392370}
   m_Layer: 0
   m_Name: Rocket 1
   m_TagString: Rocket
@@ -33,25 +34,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1241833923629244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4285460243492876}
-  - component: {fileID: 54227581122126510}
-  - component: {fileID: 114087959640421474}
-  - component: {fileID: 114639458656036048}
-  - component: {fileID: 114419607226566824}
-  m_Layer: 0
-  m_Name: Engines
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1348505344460418
 GameObject:
   m_ObjectHideFlags: 1
@@ -125,27 +107,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085486719910494}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.77, y: -1.96, z: -0.73}
+  m_LocalPosition: {x: -3.77, y: -2.43, z: -0.73}
   m_LocalScale: {x: 1, y: 1.0117086, z: 3.5390515}
   m_Children:
   - {fileID: 4523347733598082}
-  - {fileID: 4285460243492876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!4 &4285460243492876
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241833923629244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4255078645623328}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4523347733598082
 Transform:
   m_ObjectHideFlags: 1
@@ -260,21 +228,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085486719910494}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54227581122126510
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241833923629244}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!54 &54967643664797536
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -338,49 +291,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114087959640421474
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241833923629244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5120efa69453140a033b21bf2bbc67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EngineNumber: 1
-  _forceMultiplier: 0
-  EnginePosition: {x: -1, y: 0, z: 0}
-  Force:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Duration: 4
-  _delay: 3
-  _startVelocity: 0
-  _looping: 0
-  _lockOnEndForce: 0
 --- !u!114 &114277220316160732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,50 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EngineNumber: 2
-  _forceMultiplier: 0
-  EnginePosition: {x: 0, y: 0, z: 0}
-  Force:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Duration: 4
-  _delay: 3
-  _startVelocity: 0
-  _looping: 0
-  _lockOnEndForce: 0
---- !u!114 &114419607226566824
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241833923629244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5120efa69453140a033b21bf2bbc67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EngineNumber: 3
-  _forceMultiplier: 0
+  ForceMultiplier: 0
   EnginePosition: {x: 1, y: 0, z: 0}
   Force:
     serializedVersion: 2
@@ -467,49 +334,19 @@ MonoBehaviour:
   _startVelocity: 0
   _looping: 0
   _lockOnEndForce: 0
---- !u!114 &114639458656036048
+--- !u!114 &114731402759392370
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241833923629244}
+  m_GameObject: {fileID: 1085486719910494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5120efa69453140a033b21bf2bbc67, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ebfd6b1a8bc6341b731f34d731ea10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EngineNumber: 2
-  _forceMultiplier: 0
-  EnginePosition: {x: 0, y: 0, z: 0}
-  Force:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Duration: 4
-  _delay: 3
-  _startVelocity: 0
-  _looping: 0
-  _lockOnEndForce: 0
+  _winController: {fileID: 0}
+  _rocketDestroyController: {fileID: 0}
 --- !u!114 &114830567555052684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11399,7 +11236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EngineNumber: 3
-  _forceMultiplier: 0
+  ForceMultiplier: 0
   EnginePosition: {x: 0, y: 0, z: 0}
   Force:
     serializedVersion: 2
@@ -11442,8 +11279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EngineNumber: 1
-  _forceMultiplier: 0
-  EnginePosition: {x: 0, y: 0, z: 0}
+  ForceMultiplier: 0
+  EnginePosition: {x: -1, y: 0, z: 0}
   Force:
     serializedVersion: 2
     m_Curve:
