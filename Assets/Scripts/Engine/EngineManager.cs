@@ -26,7 +26,7 @@ namespace Engine
         private void Start()
         {
             _rocket = GameObject.FindGameObjectWithTag("Rocket");
-            if (_unitOfWork.PointNumber != "1")
+            if (UnitOfWork.PointNumber != "1")
             {
                 return;
             }
@@ -43,7 +43,7 @@ namespace Engine
         {
             transform.SetActiveAllChildren(true);
 
-            if (_unitOfWork.PointNumber != "1")
+            if (UnitOfWork.PointNumber != "1")
             {
                 SaveSettingsOnly();
                 return;
@@ -61,7 +61,7 @@ namespace Engine
 
 
             var engineNumber = gameObject.name.Replace("ControlPanel", "");
-            GameObject.FindGameObjectWithTag("Rocket").GetComponent<PlayerSettingsCollector>().CollectSettings(engineNumber, outValue, _unitOfWork);
+       //     GameObject.FindGameObjectWithTag("Rocket").GetComponent<PlayerSettingsCollector>().CollectSettings(engineNumber, outValue);
         }
 
         private void SaveSettingsOnly()
@@ -71,14 +71,14 @@ namespace Engine
                     out outValue);
 
             var engineNumber = gameObject.name.Replace("ControlPanel", "");
-            GameObject.FindGameObjectWithTag("Rocket").GetComponent<PlayerSettingsCollector>().CollectSettings(engineNumber, outValue, _unitOfWork);
+        //    GameObject.FindGameObjectWithTag("Rocket").GetComponent<PlayerSettingsCollector>().CollectSettings(engineNumber, outValue);
 
         }
 
         public void EngineStart()
         {
          //   _rocketEngine.PrepareToStart();
-            if (_unitOfWork.PointNumber != "1")
+            if (UnitOfWork.PointNumber != "1")
                 return;
 
             _rocketEngine.enabled = true;

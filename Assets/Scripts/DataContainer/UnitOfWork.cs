@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using Models;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace DataContainer
 {
 	public class UnitOfWork : MonoBehaviour
 	{
-		public string LevelNumber { get; set; } = "1";
-		public string PointNumber { get; set; } = "1";
+		public static string LevelNumber { get; set; } = "1";
+		public static string PointNumber { get; set; } = "1";
+	    public static string EngineNumber { get; set; } = "1";
 
 	    public void Awake()
 	    {
@@ -14,8 +16,21 @@ namespace DataContainer
 	    }
         private void Start()
 	    {
-	        LevelNumber = SceneManager.GetActiveScene().name.Replace("Scene", "").Replace("Level", "");
+	        LevelNumber = SceneManager.GetActiveScene().name.Replace("Level", "");
 	    }
 
-	}
+	    public void Update()
+	    {
+            Debug.Log($"value: {LevelNumber} {PointNumber} {EngineNumber}");
+	    }
+
+	    public void SetEngineNumber(string value)
+	    {
+	        UnitOfWork.EngineNumber = value;
+	    }
+	    public void SetPointNumber(string value)
+	    {
+	        UnitOfWork.PointNumber = value;
+	    }
+    }
 }

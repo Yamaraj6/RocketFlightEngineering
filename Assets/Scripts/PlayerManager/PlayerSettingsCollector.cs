@@ -5,20 +5,18 @@ using UnityEngine;
 
 namespace PlayerManager
 {
-    public class PlayerSettingsCollector : MonoBehaviour
+    public class PlayerSettingsCollector
     {
-        private GameObject _rocket;
-        private IContainer<Player> _playerContainer;
-        public void Start()
+        private readonly IContainer<Player> _playerContainer;
+        public PlayerSettingsCollector()
         {
-            _rocket = GameObject.FindGameObjectWithTag("Rocket");
             _playerContainer = PlayerController.PlayerContainer;
         }
 
-        public void CollectSettings(string engineNumber, float power, UnitOfWork unitOfWork)
+        public void CollectSettings(string engineNumber, float power)
         {
-            var levelNumber = unitOfWork.LevelNumber;// SceneManager.GetActiveScene().name.Replace("Level", "").Replace("Scene", "");
-            var pointNumber = unitOfWork.PointNumber;
+            var levelNumber = UnitOfWork.LevelNumber;// SceneManager.GetActiveScene().name.Replace("Level", "").Replace("Scene", "");
+            var pointNumber = UnitOfWork.PointNumber;
 
             if (_playerContainer.Data.LevelEngineSettings == null)
             {

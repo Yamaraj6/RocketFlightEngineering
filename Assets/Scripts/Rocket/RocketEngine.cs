@@ -1,4 +1,9 @@
-﻿using Extensions;
+﻿using System;
+using System.ComponentModel;
+using Engine;
+using Extensions;
+using Models;
+using PlayerManager;
 using UnityEngine;
 
 namespace Rocket
@@ -6,9 +11,10 @@ namespace Rocket
     [RequireComponent(typeof(Rigidbody))]
     public class RocketEngine : MonoBehaviour
     {
-        [SerializeField] private bool DebugToggle;
+        public EngineNumber EngineNumber;
+        [SerializeField] public float ForceMultiplier;
+
         [SerializeField] public Vector3 EnginePosition = new Vector3(0, 0, 0);
-        [SerializeField] public float ForceMultiplier = 10;
         [SerializeField] public AnimationCurve Force;
         [SerializeField] public float Duration = 4f;
 
@@ -24,23 +30,34 @@ namespace Rocket
 
         private bool _readyToStart = false;
 
-        public void PrepareToStart()
+        private void Start()
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            CountStartVariables();
+
+            SetStartValues();
+        }
+
+        private void CountStartVariables()
+        {
+            _rigidbody = GetComponentInParent<Rigidbody>();
             _rigidbody.velocity = transform.forward * _startVelocity;
             _engineIsWorkingTime = -_delay;
             _workEndEngineTime = Force[Force.length - 1].time * Duration;
-            transform.SetActiveAllChildren(true);
+        }
+
+        private void SetStartValues()
+        {
+            ForceMultiplier = new EnginePowerProvider().ProvidePower(EngineNumber);
+        }
+
+        public void PrepareToStart()
+        {
+            ForceMultiplier = new EnginePowerProvider().ProvidePower(EngineNumber);
             _readyToStart = true;
         }
 
         private void Update()
         {
-            if (DebugToggle)
-            {
-                DebugToggle = false;
-                PrepareToStart();
-            }
             if (!_readyToStart)
                 return;
             _engineIsWorkingTime += Time.deltaTime;
@@ -64,4 +81,5 @@ namespace Rocket
                 transform.position + EnginePosition, ForceMode.Force);
         }
     }
+
 }

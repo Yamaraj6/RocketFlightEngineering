@@ -13,24 +13,42 @@ namespace UI.Engine
 
 
         private IContainer<Player> _playerContainer;
-        private UnitOfWork _unitOfWork;
-
+        private PlayerSettingsCollector _playerSettingsCollector;
         private void Awake()
         {
             _playerContainer = PlayerController.PlayerContainer;
-            _unitOfWork = GameObject.FindGameObjectWithTag("UnitOfWork").GetComponent<UnitOfWork>();
+            _playerSettingsCollector = new PlayerSettingsCollector();
+            
         }
-        private void Start()
+        public void LoadProperEngineValue()
         {
-            var engineNumber = gameObject.transform.parent.transform.parent.name.Replace("ControlPanel", "");
-            var enginePower = _playerContainer.Data.LevelEngineSettings.GetEngineValue(_unitOfWork.LevelNumber,
-                _unitOfWork.PointNumber, engineNumber);
-            gameObject.transform.parent.GetComponent<Slider>().value = enginePower;
-            gameObject.GetComponent<Text>().text = enginePower.ToString("0.00");
+            SetValue();
         }
+
+        private void OnEnable()
+        {
+            SetValue();
+        }
+
         public void ChangeValue()
         {
             gameObject.GetComponent<Text>().text = EnginePowerSlider.value.ToString("0.00");
+            _playerSettingsCollector.CollectSettings(UnitOfWork.EngineNumber, EnginePowerSlider.value);
+        }
+
+        private void Start()
+        {
+            SetValue();
+        }
+
+
+
+        private void SetValue()
+        {
+            var enginePower = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
+                UnitOfWork.PointNumber, UnitOfWork.EngineNumber);
+            EnginePowerSlider.value = enginePower;
+            gameObject.GetComponent<Text>().text = enginePower.ToString("0.00");
         }
     }
 }
