@@ -7,6 +7,7 @@ namespace RocketDestroyManager
         public void DestroyRocket(GameObject rocket)
         {
             GameObject.Destroy(rocket);
+            //TODO: detroy effects
         }
 
     }

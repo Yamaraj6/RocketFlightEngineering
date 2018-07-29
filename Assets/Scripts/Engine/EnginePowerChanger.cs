@@ -26,7 +26,10 @@ namespace Engine
                 return;
 
             var pointNumber = gameObject.name.Replace("CollisionPoint", "");
+            if (pointNumber == "1")
+                return;
 
+            UnitOfWork.PointNumber = pointNumber;
             SetUpNewEnginesPower(pointNumber);
             Debug.Log($"Setting up engines on {pointNumber}");
 

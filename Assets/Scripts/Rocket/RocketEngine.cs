@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using DataContainer;
 using Engine;
 using Extensions;
 using Models;
@@ -52,6 +53,7 @@ namespace Rocket
 
         public void PrepareToStart()
         {
+            UnitOfWork.PointNumber = "1";
             ForceMultiplier = new EnginePowerProvider().ProvidePower(EngineNumber);
             _readyToStart = true;
         }

@@ -14,8 +14,10 @@ namespace Rocket
             {
                 _winController.ProcessLevelEnding(true);
             }
-            else if (other.gameObject.CompareTag("Respawn"))
+            else if (other.gameObject.CompareTag("World"))
             {
+                _rocketDestroyController.DestroyRocket(gameObject);
+                _winController.ProcessLevelEnding(false);
 
             }
     /*        else
@@ -26,3 +28,4 @@ namespace Rocket
         }
     }
 }
+
