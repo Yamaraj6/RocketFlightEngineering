@@ -19,11 +19,6 @@ namespace DataContainer
 	        LevelNumber = SceneManager.GetActiveScene().name.Replace("Level", "");
 	    }
 
-	    public void Update()
-	    {
-            Debug.Log($"value: {LevelNumber} {PointNumber} {EngineNumber}");
-	    }
-
 	    public void SetEngineNumber(string value)
 	    {
 	        UnitOfWork.EngineNumber = value;

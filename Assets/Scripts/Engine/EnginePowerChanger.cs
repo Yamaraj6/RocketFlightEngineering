@@ -16,7 +16,6 @@ namespace Engine
         private void Awake()
         {
             _rocket = GameObject.FindGameObjectWithTag("Rocket");
-            _playerContainer = PlayerController.PlayerContainer;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -37,15 +36,24 @@ namespace Engine
 
         private void SetUpNewEnginesPower(string pointNumber)
         {
+            _playerContainer = PlayerController.PlayerContainer;
             var engines = _rocket.GetComponents<RocketEngine>();
-            var helper = 0;
-            foreach (var value in _playerContainer.Data.LevelEngineSettings.PointSettings[UnitOfWork.LevelNumber]
+        //    var helper = 0;
+            var powerDictionary = _playerContainer.Data.LevelEngineSettings.PointSettings[UnitOfWork.LevelNumber]
+                .Engine[pointNumber].EnginePower;
+            foreach (var engine in engines)
+            {
+                engine.ForceMultiplier = powerDictionary[((int) engine.EngineNumber).ToString()];
+                engine.Duration += 3; //TODO : ogarnac ta wartosc sprytnie jakos
+            }
+
+        /*    foreach (var value in _playerContainer.Data.LevelEngineSettings.PointSettings[UnitOfWork.LevelNumber]
                 .Engine[pointNumber].EnginePower.Values)
             {
                 engines[helper].ForceMultiplier = value;
                 engines[helper].Duration += 2;
                 helper++;
-            }
+            }*/
         }
     }
 }
