@@ -1,4 +1,5 @@
 ﻿using RocketDestroyManager;
+using ScoreManager;
 using UnityEngine;
 using WinManager;
 
@@ -28,6 +29,7 @@ namespace Rocket
             if (other.gameObject.CompareTag("Finish"))
             {
                 _isWon = true;
+                GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreController>().StartCounting = false;
                 _winController.ProcessLevelEnding(true);
             }            
         }

@@ -4,6 +4,7 @@ using Extensions;
 using Models;
 using PlayerManager;
 using Rocket;
+using ScoreManager;
 using UnityEngine;
 
 namespace Engine
@@ -12,21 +13,29 @@ namespace Engine
     {
         private GameObject _rocket;
         private IContainer<Player> _playerContainer;
+        private ScoreController _scoreController;
+
 
         private void Awake()
         {
             _rocket = GameObject.FindGameObjectWithTag("Rocket");
+            _scoreController = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreController>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             var collisionName = other.gameObject.name;
+
+
             if (!collisionName.Contains("Rocket"))
                 return;
+
+            _scoreController.PointHit();
 
             var pointNumber = gameObject.name.Replace("CollisionPoint", "");
             if (pointNumber == "1")
                 return;
+
 
             UnitOfWork.PointNumber = pointNumber;
             SetUpNewEnginesPower(pointNumber);

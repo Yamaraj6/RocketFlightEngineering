@@ -11,6 +11,7 @@ TagManager:
   - UnitOfWork
   - EngineSettingsLayout
   - World
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
