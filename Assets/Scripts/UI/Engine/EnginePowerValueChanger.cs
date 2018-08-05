@@ -32,7 +32,7 @@ namespace UI.Engine
 
         public void ChangeValue()
         {
-            gameObject.GetComponent<Text>().text = EnginePowerSlider.value.ToString("0.00");
+            gameObject.GetComponent<Text>().text = EnginePowerSlider.value.ToString();
             _playerSettingsCollector.CollectSettings(UnitOfWork.EngineNumber, EnginePowerSlider.value);
         }
 
@@ -48,7 +48,7 @@ namespace UI.Engine
             var enginePower = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
                 UnitOfWork.PointNumber, UnitOfWork.EngineNumber);
             EnginePowerSlider.value = enginePower;
-            gameObject.GetComponent<Text>().text = enginePower.ToString("0.00");
+            gameObject.GetComponent<Text>().text = enginePower.ToString();
         }
     }
 }
