@@ -15,8 +15,15 @@ namespace Models
 
     public class Engine
     {
-        public Dictionary<string, float> EnginePower { get; set; } = new Dictionary<string, float>();
+        public Dictionary<string, EngineValues> EnginePower { get; set; } = new Dictionary<string, EngineValues>();
         //TODO: tutaj mozna rozszerzyc to co uzytkownik zmienia
 
+    }
+
+    public class EngineValues
+    {
+        public float Power { get; set; }
+        public float Delay { get; set; }
+        public bool StepPower { get; set; }
     }
 }

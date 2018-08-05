@@ -7,10 +7,9 @@ using UnityEngine.UI;
 
 namespace UI.Engine
 {
-    public class EnginePowerValueChanger : MonoBehaviour
+    public class EnginePowerTypeValueChanger : MonoBehaviour
     {
-        public Slider EnginePowerSlider;
-
+        public Toggle EnginePowerTypeToggle;
 
         private IContainer<Player> _playerContainer;
         private PlayerSettingsCollector _playerSettingsCollector;
@@ -18,7 +17,7 @@ namespace UI.Engine
         {
             _playerContainer = PlayerController.PlayerContainer;
             _playerSettingsCollector = new PlayerSettingsCollector();
-            
+
         }
         public void LoadProperEngineValue()
         {
@@ -30,14 +29,10 @@ namespace UI.Engine
             SetValue();
         }
 
-        public void ChangeValue()
-        {
-            gameObject.GetComponent<Text>().text = EnginePowerSlider.value.ToString();
-        }
 
         public void SaveValue()
         {
-            _playerSettingsCollector.CollectPowerSettings(UnitOfWork.EngineNumber, EnginePowerSlider.value);
+            _playerSettingsCollector.CollectPowerTypeSettings(UnitOfWork.EngineNumber, EnginePowerTypeToggle.isOn);
 
         }
 
@@ -50,10 +45,9 @@ namespace UI.Engine
 
         private void SetValue()
         {
-            var enginePower = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
+            var engineValues = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
                 UnitOfWork.PointNumber, UnitOfWork.EngineNumber);
-            EnginePowerSlider.value = enginePower.Power;
-            gameObject.GetComponent<Text>().text = enginePower.Power.ToString();
+            EnginePowerTypeToggle.isOn = engineValues.StepPower;
         }
     }
 }

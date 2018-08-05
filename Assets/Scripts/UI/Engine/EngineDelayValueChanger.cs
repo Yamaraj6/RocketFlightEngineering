@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 namespace UI.Engine
 {
-    public class EnginePowerValueChanger : MonoBehaviour
+    public class EngineDelayValueChanger : MonoBehaviour
     {
-        public Slider EnginePowerSlider;
+        public Slider EngineDurationSlider;
 
 
         private IContainer<Player> _playerContainer;
@@ -18,7 +18,7 @@ namespace UI.Engine
         {
             _playerContainer = PlayerController.PlayerContainer;
             _playerSettingsCollector = new PlayerSettingsCollector();
-            
+
         }
         public void LoadProperEngineValue()
         {
@@ -32,12 +32,14 @@ namespace UI.Engine
 
         public void ChangeValue()
         {
-            gameObject.GetComponent<Text>().text = EnginePowerSlider.value.ToString();
+            gameObject.GetComponent<Text>().text = EngineDurationSlider.value.ToString("0.00");
+       //     EngineDurationSlider.onValueChanged();
         }
+
 
         public void SaveValue()
         {
-            _playerSettingsCollector.CollectPowerSettings(UnitOfWork.EngineNumber, EnginePowerSlider.value);
+            _playerSettingsCollector.CollectDurationSettings(UnitOfWork.EngineNumber, EngineDurationSlider.value);
 
         }
 
@@ -50,10 +52,10 @@ namespace UI.Engine
 
         private void SetValue()
         {
-            var enginePower = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
+            var engineDelay = _playerContainer.Data.LevelEngineSettings.GetEngineValue(UnitOfWork.LevelNumber,
                 UnitOfWork.PointNumber, UnitOfWork.EngineNumber);
-            EnginePowerSlider.value = enginePower.Power;
-            gameObject.GetComponent<Text>().text = enginePower.Power.ToString();
+            EngineDurationSlider.value = engineDelay.Delay;
+            gameObject.GetComponent<Text>().text = engineDelay.Delay.ToString("0.00");
         }
     }
 }

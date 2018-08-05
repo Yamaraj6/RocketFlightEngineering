@@ -14,16 +14,19 @@ namespace Rocket
     {
         public EngineNumber EngineNumber;
         [SerializeField] public float ForceMultiplier;
+        [SerializeField] public float Delay = 0;
 
         [SerializeField] public Vector3 EnginePosition = new Vector3(0, 0, 0);
-        [SerializeField] public AnimationCurve Force;
+        [SerializeField] public AnimationCurve ConstantForce;
+        [SerializeField] public AnimationCurve StepForce;
+
         [SerializeField] public float Duration = 4f;
 
-        [SerializeField] private float _delay = 3f;
         [SerializeField] private float _startVelocity = 0;
         [SerializeField] private bool _looping = false;
         [SerializeField] private bool _lockOnEndForce = false;
-         
+
+        private AnimationCurve _force;
         private Rigidbody _rigidbody;
         private float _forceNow;
         private float _engineIsWorkingTime;
@@ -33,22 +36,33 @@ namespace Rocket
 
         private void Start()
         {
+            SetStartValues();
+
             CountStartVariables();
 
-            SetStartValues();
         }
 
         private void CountStartVariables()
         {
             _rigidbody = GetComponentInParent<Rigidbody>();
             _rigidbody.velocity = transform.forward * _startVelocity;
-            _engineIsWorkingTime = -_delay;
-            _workEndEngineTime = Force[Force.length - 1].time * Duration;
+            _engineIsWorkingTime = -Delay;
+            _workEndEngineTime = _force[_force.length - 1].time * Duration;
         }
 
         private void SetStartValues()
         {
             ForceMultiplier = new EnginePowerProvider().ProvidePower(EngineNumber);
+            Delay = new EngineDelayProvider().ProvideDelay(EngineNumber);
+            if (new EnginePowerTypeProvider().ProvidePowerType(EngineNumber))
+            {
+                _force = StepForce;
+                ForceMultiplier *= 30;
+            }
+            else
+            {
+                _force = ConstantForce;              
+            }
         }
 
         public void PrepareToStart()
@@ -66,7 +80,7 @@ namespace Rocket
 
             if (_engineIsWorkingTime >= 0 && (_engineIsWorkingTime <= _workEndEngineTime || _looping))
             {
-                _forceNow = Force.Evaluate(_engineIsWorkingTime % _workEndEngineTime);
+                _forceNow = _force.Evaluate(_engineIsWorkingTime % _workEndEngineTime);
             }
             else if (!_lockOnEndForce)
             {

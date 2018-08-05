@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using Models;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -34,6 +36,9 @@ namespace DataContainer
                 File.WriteAllText(_applicationPersistenDataPath, jsonContent);
 
             }
+
+
+
 
             var jsonData = File.ReadAllText(_applicationPersistenDataPath);
             Data = JsonConvert.DeserializeObject<TData>(jsonData);

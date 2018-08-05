@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Engine
 {
-    public class EnginePowerChanger : MonoBehaviour
+    public class EngineValuesChanger : MonoBehaviour
     {
         private GameObject _rocket;
         private IContainer<Player> _playerContainer;
@@ -38,12 +38,12 @@ namespace Engine
 
 
             UnitOfWork.PointNumber = pointNumber;
-            SetUpNewEnginesPower(pointNumber);
+            SetUpNewEnginesValues(pointNumber);
             Debug.Log($"Setting up engines on {pointNumber}");
 
         }
 
-        private void SetUpNewEnginesPower(string pointNumber)
+        private void SetUpNewEnginesValues(string pointNumber)
         {
             _playerContainer = PlayerController.PlayerContainer;
             var engines = _rocket.GetComponents<RocketEngine>();
@@ -52,17 +52,11 @@ namespace Engine
                 .Engine[pointNumber].EnginePower;
             foreach (var engine in engines)
             {
-                engine.ForceMultiplier = powerDictionary[((int) engine.EngineNumber).ToString()];
+                engine.ForceMultiplier = powerDictionary[((int) engine.EngineNumber).ToString()].Power;
+                engine.Delay = powerDictionary[((int) engine.EngineNumber).ToString()].Delay;
                 engine.Duration += 3; //TODO : ogarnac ta wartosc sprytnie jakos
             }
 
-        /*    foreach (var value in _playerContainer.Data.LevelEngineSettings.PointSettings[UnitOfWork.LevelNumber]
-                .Engine[pointNumber].EnginePower.Values)
-            {
-                engines[helper].ForceMultiplier = value;
-                engines[helper].Duration += 2;
-                helper++;
-            }*/
         }
     }
 }

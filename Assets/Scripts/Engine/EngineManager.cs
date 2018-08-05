@@ -49,7 +49,7 @@ namespace Engine
                 return;
             }
 
-            _rocketEngine.Force = _force;
+            _rocketEngine.ConstantForce = _force;
             float outValue = 0;
              var succeed=
                 float.TryParse(gameObject.GetComponentsInChildren<Text>().FirstOrDefault(f => f.name == "Value")?.text,

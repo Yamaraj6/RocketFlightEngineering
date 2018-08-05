@@ -4,6 +4,29 @@
   "FirstLogDate": "2018-01-01",
   "LastLogDate": "2018-01-01",
   "RecordsCollection": [],
-  "PointSettings": { "1": { "Engine": { "1": { "EnginePower": { "1": 10.0 } } } } }
+  "PointSettings": 
+  {
+    "1": 
+    {
+      "Engine": 
+      {
+        "1":
+        {
+          "EnginePower": 
+          {
+            "1":
+            {
+              "EngineValues":
+              {
+                "Power": 0,
+                "Duration": 0,
+                "StepPower": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
 }

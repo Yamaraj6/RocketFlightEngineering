@@ -11,7 +11,7 @@ namespace PlayerManager
 
         private void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
+         //   DontDestroyOnLoad(this.gameObject);
             PlayerContainer = new Container<Player>();
 
         }
