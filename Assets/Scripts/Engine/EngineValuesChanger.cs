@@ -52,9 +52,20 @@ namespace Engine
                 .Engine[pointNumber].EnginePower;
             foreach (var engine in engines)
             {
+                if (!powerDictionary.ContainsKey(((int) engine.EngineNumber).ToString()))
+                {
+                    engine.ForceMultiplier = 0;
+                    engine.Delay = 0;
+                    engine.ForceCurve = engine.ConstantForce;
+                    continue;
+                }
+
                 engine.ForceMultiplier = powerDictionary[((int) engine.EngineNumber).ToString()].Power;
                 engine.Delay = powerDictionary[((int) engine.EngineNumber).ToString()].Delay;
-                engine.Duration += 3; //TODO : ogarnac ta wartosc sprytnie jakos
+                engine.ForceCurve = powerDictionary[((int) engine.EngineNumber).ToString()].StepPower
+                    ? engine.StepForce
+                    : engine.ConstantForce;
+              //  engine.Duration += 3; //TODO : ogarnac ta wartosc sprytnie jakos
             }
 
         }
