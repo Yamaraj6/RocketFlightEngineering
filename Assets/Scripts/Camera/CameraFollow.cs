@@ -8,10 +8,6 @@ public class CameraFollow : MonoBehaviour
 	[SerializeField] private float _smoothSpeed = 0.125f;
 	[SerializeField] private Vector3 _offset;
 
-	private void Awake()
-	{
-		_target = FindObjectOfType<Camera>().transform;
-	}
 
 	private void FixedUpdate()
 	{
